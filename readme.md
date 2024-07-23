@@ -35,6 +35,6 @@ cargo run
 
 Pour l'exemple 7 (sans Cargo)
 ```shell
-mkdir 7_GUI/commet
+mkdir 7_GUI/comet
 npm run tauri dev
 ```
