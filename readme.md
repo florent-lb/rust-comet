@@ -19,7 +19,7 @@ La doc, officielle (trés court et simple !) : https://www.rust-lang.org/tools/i
 * Package manager : https://nodejs.org/en/download/package-manager
 
 Chaque sous dossier commençant par un numéro de 0 à 6 est une app rust standard.
-Une fois rust installer elle peux etre démarré de cette manière : 
+Une fois rust installé, l'exemple peut être démarré de cette manière : 
 
 Pour l'exemple 0 (sans Cargo) 
 ```shell
@@ -27,14 +27,20 @@ mkdir 0_hello_world
 rustc .\hello_world.rs
 .\hello_world.exe
 ```
-Pour l'exemple 1 à 6 (sans Cargo)
+Pour l'exemple 1 à 6
 ```shell
 mkdir <path to exo>
 cargo run
 ```
 
-Pour l'exemple 7 (sans Cargo)
+Pour l'exemple 7 (attention le premier build sera plus long pour télécharger les dépendances)
 ```shell
 mkdir 7_GUI/comet
 npm run tauri dev
 ```
+
+## Documentation
+
+* Site officiel de RUST : https://www.rust-lang.org/
+* Site d'Angular :  https://angular.dev/
+* Site d'Angular material : https://material.angular.io/
