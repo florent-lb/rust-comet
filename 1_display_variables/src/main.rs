@@ -25,3 +25,8 @@ fn main() {
 
     println!("{}", dateOfTheDay.to_string());
 }
+
+//https://doc.rust-lang.org/beta/book/ch03-02-data-types.html
+//Lenght :
+// 8,16,32,64,128  or size (architecture dependent 32 or 64)
+//Type i == signed, u == unsigned, f == floating

@@ -6,9 +6,15 @@
       <sourceFolder url="file://$MODULE_DIR$/1_display_variables/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3_conditionnal/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/4_fibonacci/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/5_objects/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/6_objects_parsed/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/7_GUI/commet/src-tauri/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/1_display_variables/target" />
       <excludeFolder url="file://$MODULE_DIR$/3_conditionnal/target" />
       <excludeFolder url="file://$MODULE_DIR$/4_fibonacci/target" />
+      <excludeFolder url="file://$MODULE_DIR$/5_objects/target" />
+      <excludeFolder url="file://$MODULE_DIR$/6_objects_parsed/target" />
+      <excludeFolder url="file://$MODULE_DIR$/7_GUI/commet/src-tauri/target" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

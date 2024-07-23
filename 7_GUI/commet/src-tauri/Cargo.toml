@@ -1,0 +1,31 @@
+[package]
+name = "commet"
+version = "0.0.0"
+description = "A Tauri App"
+authors = ["you"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1", features = [] }
+
+[dependencies]
+tauri = { version = "1", features = ["shell-open"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# `bundled` causes us to automatically compile and link in an up to date
+# version of SQLite for you. This avoids many common build issues, and
+# avoids depending on the version of SQLite on the users system (or your
+# system), which may be old or missing. It's the right choice for most
+# programs that control their own SQLite databases.
+#
+# That said, it's not ideal for all scenarios and in particular, generic
+# libraries built around `rusqlite` should probably not enable it, which
+# is why it is not a default feature -- it could become hard to disable.
+rusqlite = { version = "0.32.0", features = ["bundled"] }
+
+[features]
+# This feature is used for production builds or when a dev server is not specified, DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]

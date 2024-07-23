@@ -29,7 +29,7 @@ fn main() {
 }
 
 
-fn fibo(mut nb_loop: i32, left: i32, right: i32) -> i32
+fn fibo(mut nb_loop: i32, left: u128, right: u128) -> u128
 {
     if (nb_loop > 0)
     {

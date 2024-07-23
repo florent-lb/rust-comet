@@ -1,0 +1,10 @@
+[package]
+name = "objects_parsed"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rand = "0.8.5"
+bigdecimal = "0.4.5"
+serde_json = "1.0.120"
+serde = { version = "1.0.204", features = ["derive"] }
