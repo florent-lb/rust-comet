@@ -44,3 +44,16 @@ npm run tauri dev
 * Site officiel de RUST : https://www.rust-lang.org/
 * Site d'Angular :  https://angular.dev/
 * Site d'Angular material : https://material.angular.io/
+* Site de Tauri : https://tauri.app/
+
+## TroubleShooting
+
+Il est possible que l'exercice 7 ne compile pas à cause d'un programme windows non trouvé :
+
+Attention il y a des pre-requis supplémentaire que rust et node : https://tauri.app/v1/guides/getting-started/prerequisites
+
+si apres l'installation des pré-requis la commande `run npm tauri dev` ne fonctionne toujours pas, désisntaller rust avec la commande 
+```shell
+rustup self uninstall
+```
+Redémarrer la machine. Re-installer Rust. 
