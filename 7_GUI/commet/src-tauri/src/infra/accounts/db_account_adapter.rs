@@ -8,7 +8,7 @@ pub struct DBAccountAdapter {
 
 impl DBAccountAdapter {}
 fn get_connection() -> Connection {
-    Connection::open_in_memory().unwrap()
+    Connection::open("accounts.db").unwrap()
 }
 impl AccountPort for DBAccountAdapter {
     fn new() -> DBAccountAdapter {
@@ -18,7 +18,7 @@ impl AccountPort for DBAccountAdapter {
     }
 
     fn get_all_account(&self) -> Vec<Account> {
-        let mut result_set = self.connection.prepare("SELECT number,amount,sens FROM accounts");
+        let result_set = self.connection.prepare("SELECT number,amount,sens FROM accounts");
 
         let accounts = result_set.unwrap().query_row([], |row| {
             Ok(
@@ -31,26 +31,35 @@ impl AccountPort for DBAccountAdapter {
         });
 
         let mut all_accounts: Vec<Account> = vec![];
-        for account in accounts{
+        for account in accounts {
             all_accounts.push(account);
         }
         all_accounts
     }
 
     fn init_accounts(&self, accounts: Vec<Account>) {
-        println!("Intialize DB with accounts");
-        self.connection.execute("
-                                CREATE TABLE accounts (
-                                number  TEXT
-                                amount  NUMERIC
+        let connection = &self.connection;
+
+        let result_created_table = connection.execute("
+                                CREATE TABLE IF NOT EXISTS accounts (
+                                number  TEXT,
+                                amount  NUMERIC,
                                 sens    TEXT
                                 )
-                                ", ()).unwrap();
+                                ", ());
 
+        let nb_account: usize = connection.prepare("SELECT count(*) FROM accounts")
+            .unwrap().query(())
+            .unwrap().next()
+            .unwrap().map(|row| { row.get(0).unwrap() })
+            .unwrap();
 
-        for account in accounts {
-            self.connection.execute("INSERT INTO accounts (number,amount,sens) VALUES (?1, ?2, ?3)",
-                                    (&account.number, &account.amount, &account.sens)).unwrap();
+        if result_created_table.is_ok() && nb_account == 0
+        {
+            for account in accounts {
+                connection.execute("INSERT INTO accounts (number,amount,sens) VALUES (?1, ?2, ?3)",
+                                   (&account.number, &account.amount, &account.sens)).unwrap();
+            }
         }
     }
 }

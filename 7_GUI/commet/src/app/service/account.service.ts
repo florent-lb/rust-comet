@@ -1,5 +1,6 @@
-import {Injectable, signal} from '@angular/core';
+import {computed, effect, Injectable, signal} from '@angular/core';
 import {invoke} from "@tauri-apps/api/tauri";
+import {Account} from "app/domain/account.model";
 
 @Injectable({
     providedIn: 'root'
@@ -7,8 +8,14 @@ import {invoke} from "@tauri-apps/api/tauri";
 export class AccountService {
 
     dataInitialize = signal<boolean>(false)
+    accounts = signal<Account[]>([])
 
     constructor() {
+        effect(() => {
+            if (this.dataInitialize()) {
+                this.reloadAccounts();
+            }
+        });
     }
 
 
@@ -18,4 +25,8 @@ export class AccountService {
         });
     }
 
+    private reloadAccounts() {
+        invoke<Account[]>("get_all_accounts")
+            .then((accounts) => this.accounts.set(accounts));
+    }
 }
