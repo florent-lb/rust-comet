@@ -1,26 +1,26 @@
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 
-@include mat.slide-toggle-density(-1);
-
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat.core();
 
-$my-theme: mat.define-theme((
-        color: (
-                theme-type: light,
-                primary: mat.$m2-orange-palette,
-        ),
-        density: (scale : -3)
-));
+$angular-material-3-theme: mat.define-theme(
+                (
+                        color: (
+                                theme-type: light,
+                                primary: mat.$azure-palette,
+                                tertiary: mat.$blue-palette,
+                        ),
+                        density: (
+                                scale: 0,
+                        ),
+                )
+);
 
+html, body{
+  height: 100%;
+  margin: 0!important;
+  padding: 0!important;
+}
 
-html {
-  @include mat.all-component-themes($my-theme);
-  --mat-select-panel-background-color: white
+:root {
+        @include mat.all-component-themes($angular-material-3-theme);
 }

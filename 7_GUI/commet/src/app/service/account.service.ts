@@ -1,6 +1,6 @@
 import {computed, effect, Injectable, signal} from '@angular/core';
 import {invoke} from "@tauri-apps/api/tauri";
-import {Account} from "app/domain/account.model";
+import {Account} from "../domain/account.model";
 
 @Injectable({
     providedIn: 'root'
