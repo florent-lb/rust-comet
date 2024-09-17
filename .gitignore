@@ -1,5 +1,6 @@
 #Build
 *.exe
+*.pdb
 #IDE
 *.iml
 
