@@ -1,5 +1,4 @@
 use std::io;
-use chrono::{Local};
 
 fn main() {
     println!("Display the banner of the day !");

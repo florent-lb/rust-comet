@@ -23,19 +23,19 @@ Une fois rust installé, l'exemple peut être démarré de cette manière :
 
 Pour l'exemple 0 (sans Cargo) 
 ```shell
-mkdir 0_hello_world
+cd 0_hello_world
 rustc .\hello_world.rs
 .\hello_world.exe
 ```
 Pour l'exemple 1 à 6
 ```shell
-mkdir <path to exo>
+cd <path to exo>
 cargo run
 ```
 
 Pour l'exemple 7 (attention le premier build sera plus long pour télécharger les dépendances)
 ```shell
-mkdir 7_GUI/comet
+cd 7_GUI
 npm run tauri dev
 ```
 

@@ -1,11 +1,8 @@
 use std::{fs, io};
 use std::collections::HashMap;
 use std::path::Path;
-use std::str::FromStr;
 
-use bigdecimal::BigDecimal;
-use rand::{Rng, RngCore};
-use serde::{Deserialize, Deserializer, Serialize};
+use serde::{Deserialize, Serialize};
 use crate::SensCode::{C, D};
 
 fn main() {
@@ -49,18 +46,6 @@ fn main() {
     }
 }
 
-fn gen_account() -> Account {
-    let mut rand_th = rand::thread_rng();
-    Account {
-        amount: BigDecimal::from_str(format!("{}.{}", rand_th.next_u32(), rand_th.next_u32()).as_str()).unwrap().round(2).to_string(),
-        number: format!("{} {} {}", rand_th.gen_range(1000..9999).to_string(), rand_th.gen_range(1000..9999).to_string(), rand_th.gen_range(10000000000i64..99999999999i64).to_string()),
-        sens: match rand_th.gen_range(0..1) {
-            0 => D,
-            1 => C,
-            _ => { D }
-        },
-    }
-}
 #[derive(Deserialize, Serialize, Debug)]
 struct Account {
     amount: String,
@@ -89,5 +74,5 @@ fn input_number() -> usize {
         .read_line(&mut choice)
         .expect("Failed to read !");
 
-    return choice.trim().parse::<usize>().unwrap();
+    choice.trim().parse::<usize>().unwrap()
 }

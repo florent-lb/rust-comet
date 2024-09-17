@@ -1,4 +1,3 @@
-use std::io;
 use chrono::{Local};
 
 fn main() {
@@ -21,9 +20,9 @@ fn main() {
                                                                ");
 
 
-    let mut dateOfTheDay = Local::now();
+    let date_of_the_day = Local::now();
 
-    println!("{}", dateOfTheDay.to_string());
+    println!("{}", date_of_the_day.to_string());
 }
 
 //https://doc.rust-lang.org/beta/book/ch03-02-data-types.html

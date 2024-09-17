@@ -79,5 +79,5 @@ fn input_number() -> usize {
         .read_line(&mut choice)
         .expect("Failed to read !");
 
-    return choice.trim().parse::<usize>().unwrap()
+    choice.trim().parse::<usize>().unwrap()
 }

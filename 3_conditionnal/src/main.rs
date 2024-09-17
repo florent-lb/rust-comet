@@ -1,5 +1,4 @@
 use std::io;
-use std::io::Read;
 
 fn main() {
     println!("Display the banner of the day !");
